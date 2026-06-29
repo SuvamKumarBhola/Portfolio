@@ -1,0 +1,84 @@
+{
+  "name": "Jane Doe",
+  "tagline": "Software Engineer & Builder",
+  "intro": "I craft elegant, high-performance web experiences. Focused on blending minimalist design with cutting-edge engineering to solve complex problems.",
+  "about": {
+    "shortBio": "I am a full-stack developer passionate about open-source, system design, and building products that scale.",
+    "longBio": "With over 5 years of experience in the industry, I have led technical teams, shipped products used by millions, and contributed significantly to open source. I believe in writing code that is not just functional, but beautiful and maintainable.",
+    "goals": "To push the boundaries of what is possible on the web and bridge the gap between design and technical implementation.",
+    "vision": "A digital landscape where every interaction is purposeful, fast, and accessible."
+  },
+  "contact": {
+    "email": "hello@example.com",
+    "phone": "+1 234 567 8900",
+    "location": "San Francisco, CA"
+  },
+  "socials": [
+    {
+      "platform": "GitHub",
+      "url": "https://github.com",
+      "icon": "Github"
+    },
+    {
+      "platform": "LinkedIn",
+      "url": "https://linkedin.com",
+      "icon": "Linkedin"
+    },
+    {
+      "platform": "Twitter",
+      "url": "https://twitter.com",
+      "icon": "Twitter"
+    }
+  ],
+  "skills": {
+    "Languages": ["TypeScript", "Python", "Go", "Rust"],
+    "Frontend": ["React", "Next.js", "TailwindCSS", "Framer Motion"],
+    "Backend": ["Node.js", "Express", "PostgreSQL", "Redis"],
+    "Tools": ["Git", "Docker", "AWS", "Figma"]
+  },
+  "experience": [
+    {
+      "company": "Tech Innovators Inc.",
+      "role": "Senior Frontend Engineer",
+      "duration": "2021 - Present",
+      "responsibilities": [
+        "Led the migration of a legacy monolithic architecture to micro-frontends.",
+        "Improved Core Web Vitals by 40% through rigorous performance tuning.",
+        "Mentored junior developers and established code quality standards."
+      ],
+      "technologies": ["React", "TypeScript", "GraphQL", "Webpack"]
+    },
+    {
+      "company": "Startup Co.",
+      "role": "Full Stack Developer",
+      "duration": "2018 - 2021",
+      "responsibilities": [
+        "Built the MVP from scratch and scaled it to 10k daily active users.",
+        "Implemented real-time collaboration features using WebSockets.",
+        "Designed and optimized PostgreSQL database schemas."
+      ],
+      "technologies": ["Node.js", "React", "PostgreSQL", "Socket.io"]
+    }
+  ],
+  "projects": [
+    {
+      "title": "Aura Design System",
+      "description": "A comprehensive open-source React component library tailored for building premium interfaces with minimal effort. Includes fully customizable Framer Motion animations out of the box.",
+      "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1000&auto=format&fit=crop",
+      "liveUrl": "#",
+      "githubUrl": "#",
+      "techStack": ["React", "TypeScript", "TailwindCSS", "Storybook"],
+      "categories": ["Frontend", "Open Source"]
+    },
+    {
+      "title": "Quantum DB Engine",
+      "description": "An experimental lightweight in-memory key-value store built in Go, focusing on high throughput and zero-allocation critical paths.",
+      "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1000&auto=format&fit=crop",
+      "liveUrl": "#",
+      "githubUrl": "#",
+      "techStack": ["Go", "Distributed Systems", "gRPC"],
+      "categories": ["Backend", "Research"]
+    }
+  ],
+  "interests": ["System Design", "Open Source", "Photography", "Reading", "Cloud Computing"]
+}
