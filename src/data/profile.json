@@ -41,6 +41,12 @@
       "company": "Tech Innovators Inc.",
       "role": "Senior Frontend Engineer",
       "duration": "2021 - Present",
+      "location": "Remote",
+      "stats": [
+        {"value": "5", "label": "CORE COMPONENTS"},
+        {"value": "3", "label": "PRINCIPALS"},
+        {"value": "Jun-Nov", "label": "TERM"}
+      ],
       "responsibilities": [
         "Led the migration of a legacy monolithic architecture to micro-frontends.",
         "Improved Core Web Vitals by 40% through rigorous performance tuning.",
@@ -52,6 +58,11 @@
       "company": "Startup Co.",
       "role": "Full Stack Developer",
       "duration": "2018 - 2021",
+      "location": "San Francisco, CA",
+      "stats": [
+        {"value": "10k+", "label": "DAILY USERS"},
+        {"value": "PostgreSQL", "label": "DATABASE"}
+      ],
       "responsibilities": [
         "Built the MVP from scratch and scaled it to 10k daily active users.",
         "Implemented real-time collaboration features using WebSockets.",

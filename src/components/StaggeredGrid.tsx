@@ -1,13 +1,9 @@
-npx shadcn@latest add https://www.vengenceui.com/r/staggered-grid.jsonv
-
-code -
-
 'use client'
 import React, { useEffect, useRef, useState, useId } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import imagesLoaded from 'imagesloaded'
-import { cn } from '@/lib/utils'
+import { cn } from '../lib/utils'
 import { FaGithub, FaSlack, FaTwitter } from 'react-icons/fa'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -171,7 +167,7 @@ export function StaggeredGrid({
 
     // Prepare grid items: fill up to the end of Row 3 (21 slots)
     // This perfectly balances the 3rd row with 2 cards on each side of the bento container.
-    const mixedGridItems: (string | 'BENTO_GROUP')[] = Array.from({ length: 21 }, (_, i) => images[i % images.length]);
+    const mixedGridItems: (string | 'BENTO_GROUP')[] = Array.from({ length: 21 }, (_, i) => images[i % (images.length || 1)] || '');
 
     // Replace the slot where we want the bento group
     // Position at index 16 = Row 3 (middle row), spanning columns 3-5 (center)
@@ -287,7 +283,7 @@ export function StaggeredGrid({
                             return (
                                 <figure key={`img-${i}`} data-col={i % 7} className="grid__item m-0 relative z-10 [perspective:800px] will-change-[transform,opacity] group cursor-pointer">
                                     <div className="grid__item-img w-full h-full [backface-visibility:hidden] will-change-transform rounded-xl overflow-hidden shadow-sm border border-zinc-200 dark:border-zinc-900 bg-zinc-100 dark:bg-zinc-950 flex items-center justify-center transition-all duration-500 ease-out group-hover:scale-105 group-hover:shadow-xl group-hover:border-transparent">
-
+                                        <img src={item} alt="" className="absolute inset-0 w-full h-full object-cover opacity-20" />
                                         {/* Gradient Overlay for Hover */}
                                         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/80 to-black backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0" />
 

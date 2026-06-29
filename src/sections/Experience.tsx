@@ -1,111 +1,108 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import type { Variants } from 'framer-motion';
-import { ChevronDown, ChevronUp } from 'lucide-react';
+import { ChevronDown, ChevronUp, Briefcase } from 'lucide-react';
 import profileData from '../data/profile.json';
-
-const containerVariant: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.2 },
-  },
-};
-
-const itemVariant: Variants = {
-  hidden: { opacity: 0, x: -20 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: 'easeOut' } },
-};
+import { cn } from '../lib/utils';
 
 export default function Experience() {
-  const { experience } = profileData;
   const [expandedIndex, setExpandedIndex] = useState<number | null>(0);
 
-  const toggleExpand = (index: number) => {
-    setExpandedIndex(expandedIndex === index ? null : index);
-  };
-
   return (
-    <section
-      id="experience"
-      className="relative w-full py-24 px-6 md:px-12 lg:px-24 border-b border-border bg-background"
-    >
+    <section id="experience" className="w-full py-24 px-6 md:px-12 lg:px-24 bg-[#0a0a0a] text-white border-b border-border">
       <div className="max-w-4xl mx-auto w-full">
-        <div className="mb-16">
-          <h2 className="text-sm tracking-[0.2em] uppercase text-muted-foreground mb-4">
-            03 // Experience
-          </h2>
-          <h3 className="text-4xl md:text-5xl font-heading font-semibold leading-tight">
-            Where I've made an <span className="text-muted-foreground italic">impact.</span>
-          </h3>
-        </div>
+        <h2 className="text-2xl font-bold mb-8 text-white">Experiences</h2>
 
-        <motion.div
-          variants={containerVariant}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-100px' }}
-          className="relative border-l border-border ml-2 md:ml-0 md:pl-8 space-y-12"
-        >
-          {experience.map((exp, index) => (
-            <motion.div key={index} variants={itemVariant} className="relative group">
-              {/* Timeline dot */}
-              <div className="absolute -left-[9px] md:-left-[41px] top-2 w-[17px] h-[17px] rounded-full bg-background border-2 border-muted-foreground group-hover:border-foreground group-hover:bg-foreground transition-all duration-300" />
-
-              <div
-                className="cursor-pointer select-none pl-6 md:pl-0"
-                onClick={() => toggleExpand(index)}
+        <div className="border-t border-dashed border-white/10">
+          {profileData.experience.map((exp: any, index: number) => {
+            const isExpanded = expandedIndex === index;
+            return (
+              <div 
+                key={index} 
+                className="border-b border-dashed border-white/10 py-6"
               >
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
-                  <h4 className="text-2xl font-semibold">{exp.role}</h4>
-                  <span className="text-sm font-mono text-muted-foreground bg-muted px-3 py-1 rounded-full w-max">
-                    {exp.duration}
-                  </span>
-                </div>
-                <div className="flex items-center justify-between text-muted-foreground hover:text-foreground transition-colors">
-                  <p className="text-lg">{exp.company}</p>
-                  <button className="p-2 rounded-full hover:bg-muted transition-colors">
-                    {expandedIndex === index ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
-                  </button>
-                </div>
-              </div>
-
-              <AnimatePresence>
-                {expandedIndex === index && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: 'auto', opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.3, ease: 'easeInOut' }}
-                    className="overflow-hidden pl-6 md:pl-0"
-                  >
-                    <div className="pt-6 pb-2 space-y-4">
-                      <ul className="space-y-3">
-                        {exp.responsibilities.map((resp, idx) => (
-                          <li key={idx} className="flex items-start gap-3 text-foreground/80">
-                            <span className="text-foreground mt-1.5 w-1.5 h-1.5 rounded-full bg-foreground shrink-0" />
-                            <span className="leading-relaxed">{resp}</span>
-                          </li>
-                        ))}
-                      </ul>
-                      
-                      <div className="pt-4 flex flex-wrap gap-2">
-                        {exp.technologies.map((tech) => (
-                          <span
-                            key={tech}
-                            className="px-3 py-1 text-xs font-mono uppercase tracking-wider text-muted-foreground border border-border rounded-full"
-                          >
-                            {tech}
-                          </span>
-                        ))}
-                      </div>
+                {/* Header (always visible) */}
+                <div 
+                  className="flex items-start justify-between cursor-pointer group"
+                  onClick={() => setExpandedIndex(isExpanded ? null : index)}
+                >
+                  <div className="flex items-center gap-4">
+                    {/* Logo placeholder */}
+                    <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0">
+                      <Briefcase className="w-6 h-6 text-white/70" />
                     </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.div>
-          ))}
-        </motion.div>
+                    <div>
+                      <h3 className="text-lg font-bold text-white group-hover:text-white/80 transition-colors">
+                        {exp.company}
+                      </h3>
+                      <p className="text-white/50 text-sm mt-0.5">
+                        {exp.role}
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex flex-col items-end text-sm">
+                    <div className="flex items-center gap-2 text-white/90 font-medium">
+                      {exp.duration}
+                      {isExpanded ? <ChevronUp size={16} className="text-white/50" /> : <ChevronDown size={16} className="text-white/50" />}
+                    </div>
+                    <span className="text-white/40 mt-1">
+                      {exp.location || 'Remote'}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Expanded Content */}
+                <AnimatePresence>
+                  {isExpanded && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3, ease: 'easeInOut' }}
+                      className="overflow-hidden"
+                    >
+                      <div className="pt-8 pb-2 pl-[4rem]">
+                        {/* Stats Row (optional) */}
+                        {exp.stats && exp.stats.length > 0 && (
+                          <div className="flex flex-wrap gap-8 mb-8 pb-6 border-b border-dashed border-white/5">
+                            {exp.stats.map((stat: any, i: number) => (
+                              <div key={i} className="flex flex-col">
+                                <span className="text-lg font-bold text-white">{stat.value}</span>
+                                <span className="text-[10px] uppercase tracking-wider text-white/40 font-medium mt-1">{stat.label}</span>
+                              </div>
+                            ))}
+                          </div>
+                        )}
+
+                        {/* Responsibilities list */}
+                        <ul className="space-y-4 mb-8">
+                          {exp.responsibilities.map((resp: string, idx: number) => (
+                            <li key={idx} className="flex items-start text-white/60 text-sm leading-relaxed">
+                              <span className="mr-3 text-white/40 mt-0.5">*</span>
+                              <span>{resp}</span>
+                            </li>
+                          ))}
+                        </ul>
+
+                        {/* Tech tags */}
+                        <div className="flex flex-wrap gap-2">
+                          {exp.technologies.map((tech: string) => (
+                            <span
+                              key={tech}
+                              className="px-3 py-1.5 text-xs font-medium bg-white/5 text-white/60 border border-white/10 rounded-md"
+                            >
+                              {tech}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </section>
   );

@@ -13,6 +13,7 @@ import Projects from './sections/Projects';
 import Interests from './sections/Interests';
 import Certifications from './sections/Certifications';
 import GithubActivity from './sections/Github';
+import Contact from './sections/Contact';
 import Footer from './sections/Footer';
 
 function App() {
@@ -53,6 +54,7 @@ function App() {
         <Certifications />
         <Interests />
         <GithubActivity />
+        <Contact />
       </main>
       <Footer />
     </div>
