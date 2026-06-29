@@ -11,6 +11,7 @@ import Skills from './sections/Skills';
 import Experience from './sections/Experience';
 import Projects from './sections/Projects';
 import Interests from './sections/Interests';
+import Certifications from './sections/Certifications';
 import GithubActivity from './sections/Github';
 import Footer from './sections/Footer';
 
@@ -49,6 +50,7 @@ function App() {
         <Skills />
         <Experience />
         <Projects />
+        <Certifications />
         <Interests />
         <GithubActivity />
       </main>

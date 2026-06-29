@@ -1,12 +1,9 @@
-npx shadcn@latest add https://www.vengenceui.com/r/diagonal-carousel.json
-
-code -
 "use client";
 
 import * as React from "react";
 import { motion, type Transition } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { cn } from "../lib/utils";
 
 export interface DiagonalCarouselItem {
   src: string;

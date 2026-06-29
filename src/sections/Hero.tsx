@@ -45,7 +45,7 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.8, filter: 'blur(10px)' }}
           animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
           transition={{ duration: 1, ease: 'easeOut' }}
-          className="relative group w-64 h-80 lg:w-80 lg:h-96"
+          className="relative group w-64 h-80 lg:w-80 lg:h-96 shrink-0"
         >
           <div className="absolute inset-0 border border-foreground translate-x-4 translate-y-4 group-hover:translate-x-6 group-hover:translate-y-6 transition-transform duration-500" />
           <div className="absolute inset-0 bg-muted border border-border overflow-hidden">
@@ -71,18 +71,7 @@ export default function Hero() {
             />
           </motion.h1>
 
-          <motion.div
-            variants={typingVariants}
-            initial="hidden"
-            animate="visible"
-            className="text-xl lg:text-3xl text-muted-foreground font-light mb-8 h-10 flex overflow-hidden"
-          >
-            {designation.split('').map((char, index) => (
-              <motion.span key={index} variants={charVariants}>
-                {char === ' ' ? '\u00A0' : char}
-              </motion.span>
-            ))}
-          </motion.div>
+
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}

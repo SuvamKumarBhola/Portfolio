@@ -80,5 +80,27 @@
       "categories": ["Backend", "Research"]
     }
   ],
+  "certifications": [
+    {
+      "title": "AWS Certified Solutions Architect",
+      "src": "https://images.unsplash.com/photo-1523289217630-0dd16184ac8e?auto=format&fit=crop&q=80&w=600&h=800",
+      "alt": "AWS Certificate"
+    },
+    {
+      "title": "Google Cloud Professional Developer",
+      "src": "https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&q=80&w=600&h=800",
+      "alt": "GCP Certificate"
+    },
+    {
+      "title": "Certified Kubernetes Administrator",
+      "src": "https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&q=80&w=600&h=800",
+      "alt": "CKA Certificate"
+    },
+    {
+      "title": "Meta Front-End Developer",
+      "src": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=600&h=800",
+      "alt": "Meta Certificate"
+    }
+  ],
   "interests": ["System Design", "Open Source", "Photography", "Reading", "Cloud Computing"]
 }
