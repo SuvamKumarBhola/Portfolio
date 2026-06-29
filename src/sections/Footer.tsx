@@ -1,6 +1,7 @@
 
 import { Mail, ArrowUpRight } from 'lucide-react';
 import profileData from '../data/profile.json';
+import ElasticStack from '../components/ElasticStack';
 
 export default function Footer() {
   const { contact, socials } = profileData;
@@ -31,6 +32,21 @@ export default function Footer() {
                 Schedule Meeting
                 <ArrowUpRight size={18} />
               </button>
+            </div>
+            
+            <div className="mt-16 flex flex-col sm:flex-row items-center gap-6 text-background/60">
+              <span className="text-sm font-medium tracking-widest uppercase">Trusted by amazing people</span>
+              <ElasticStack 
+                items={[
+                  { id: 1, image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=150&h=150' },
+                  { id: 2, image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=150&h=150' },
+                  { id: 3, image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=150&h=150' },
+                  { id: 4, image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=150&h=150' },
+                  { id: 5, image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=150&h=150' },
+                ]}
+                itemSize={56}
+                overlap={24}
+              />
             </div>
           </div>
 

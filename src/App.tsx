@@ -1,8 +1,10 @@
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Lenis from '@studio-freight/lenis';
+import { AnimatePresence } from 'framer-motion';
 import CustomCursor from './components/CustomCursor';
 import ThemeToggle from './components/ThemeToggle';
 import Navbar from './components/Navbar';
+import Loader from './components/Loader';
 
 // Sections (to be implemented)
 import Hero from './sections/Hero';
@@ -17,7 +19,11 @@ import Contact from './sections/Contact';
 import Footer from './sections/Footer';
 
 function App() {
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
+    if (loading) return; // Don't init Lenis while loading
+
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -37,10 +43,16 @@ function App() {
     return () => {
       lenis.destroy();
     };
-  }, []);
+  }, [loading]);
 
   return (
-    <div className="relative w-full min-h-screen font-sans selection:bg-foreground selection:text-background">
+    <>
+      <AnimatePresence>
+        {loading && <Loader onComplete={() => setLoading(false)} />}
+      </AnimatePresence>
+
+      {!loading && (
+        <div className="relative w-full min-h-screen font-sans selection:bg-foreground selection:text-background">
       <CustomCursor />
       <ThemeToggle />
       <Navbar />
@@ -57,7 +69,9 @@ function App() {
         <Contact />
       </main>
       <Footer />
-    </div>
+        </div>
+      )}
+    </>
   );
 }
 
