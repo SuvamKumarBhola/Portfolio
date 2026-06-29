@@ -1,104 +1,124 @@
-npx shadcn@latest add @kokonutui/dynamic-text
+npx shadcn@latest add https://www.vengenceui.com/r/logo-slider.json
 
-code -
+code-
+
 "use client";
 
-/**
- * @author: @dorianbaffier
- * @description: Dynamic Text
- * @version: 1.0.0
- * @date: 2025-06-26
- * @license: MIT
- * @website: https://kokonutui.com
- * @github: https://github.com/kokonut-labs/kokonutui
- */
+import * as React from "react";
+import { cn } from "@/lib/utils";
 
-import { AnimatePresence, motion } from "motion/react";
-import { useEffect, useState } from "react";
+/* =============================================================================
+   LogoSlider Component
+   
+   A smooth, infinite marquee/slider component for displaying logos.
+   Uses Tailwind CSS where possible, raw CSS only for animations/masks.
+============================================================================= */
 
-interface Greeting {
-  text: string;
-  language: string;
+export interface LogoSliderProps {
+    /** Array of React nodes (logos, icons, images) to display */
+    logos: React.ReactNode[];
+    /** Animation speed - higher = slower (default: 60) */
+    speed?: number;
+    /** Scroll direction. Default: "left" */
+    direction?: "left" | "right";
+    /** Whether to show blur overlays on edges. Default: true */
+    showBlur?: boolean;
+    /** Number of blur layers for progressive effect. Default: 8 */
+    blurLayers?: number;
+    /** Blur intensity multiplier. Default: 1 */
+    blurIntensity?: number;
+    /** Additional CSS classes */
+    className?: string;
+    /** Whether to pause animation on hover. Default: false */
+    pauseOnHover?: boolean;
 }
 
-const greetings: Greeting[] = [
-  { text: "Hello", language: "English" },
-  { text: "こんにちは", language: "Japanese" },
-  { text: "Bonjour", language: "French" },
-  { text: "Hola", language: "Spanish" },
-  { text: "안녕하세요", language: "Korean" },
-  { text: "Ciao", language: "Italian" },
-  { text: "Hallo", language: "German" },
-  { text: "こんにちは", language: "Japanese" },
-];
+/**
+ * LogoSlider Component
+ *
+ * A beautiful infinite marquee for showcasing logos, partners, or any content.
+ * Uses per-item CSS animations for optimal performance.
+ */
 
-const DynamicText = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isAnimating, setIsAnimating] = useState(true);
 
-  useEffect(() => {
-    if (!isAnimating) return;
-
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => {
-        const nextIndex = prevIndex + 1;
-
-        if (nextIndex >= greetings.length) {
-          clearInterval(interval);
-          setIsAnimating(false);
-          return prevIndex;
-        }
-
-        return nextIndex;
-      });
-    }, 300);
-
-    return () => clearInterval(interval);
-  }, [isAnimating]);
-
-  // Animation variants for the text
-  const textVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: { y: 0, opacity: 1 },
-    exit: { y: -100, opacity: 0 },
-  };
-
-  return (
-    <section
-      aria-label="Rapid greetings in different languages"
-      className="flex min-h-[200px] items-center justify-center gap-1 p-4"
-    >
-      <div className="relative flex h-16 w-60 items-center justify-center overflow-visible">
-        {isAnimating ? (
-          <AnimatePresence mode="popLayout">
-            <motion.div
-              animate={textVariants.visible}
-              aria-live="off"
-              className="absolute flex items-center gap-2 font-medium text-2xl text-gray-800 dark:text-gray-200"
-              exit={textVariants.exit}
-              initial={textVariants.hidden}
-              key={currentIndex}
-              transition={{ duration: 0.2, ease: "easeOut" }}
-            >
-              <div
-                aria-hidden="true"
-                className="h-2 w-2 rounded-full bg-black dark:bg-white"
-              />
-              {greetings[currentIndex].text}
-            </motion.div>
-          </AnimatePresence>
-        ) : (
-          <div className="flex items-center gap-2 font-medium text-2xl text-gray-800 dark:text-gray-200">
+export const LogoSlider = ({
+    logos,
+    speed = 60,
+    direction = "left",
+    showBlur = true,
+    blurLayers = 8,
+    blurIntensity = 1,
+    className,
+    pauseOnHover = false,
+}: LogoSliderProps) => {
+    return (
+        <div
+            className={cn(
+                "logo-slider w-full overflow-hidden",
+                className
+            )}
+            style={
+                {
+                    "--speed": speed,
+                    "--count": logos.length,
+                    "--blurs": blurLayers,
+                    "--blur": blurIntensity,
+                } as React.CSSProperties
+            }
+        >
             <div
-              aria-hidden="true"
-              className="h-2 w-2 rounded-full bg-black dark:bg-white"
-            />
-            {greetings[currentIndex].text}
-          </div>
-        )}
-      </div>
-    </section>
-  );
+                className={cn(
+                    "logo-slider__container",
+                    "relative w-full min-h-[80px] grid"
+                )}
+                data-direction={direction}
+                data-pause-on-hover={pauseOnHover}
+            >
+                {/* Progressive Blur Overlay - Left */}
+                {showBlur && (
+                    <div className="logo-slider__blur logo-slider__blur--left absolute top-0 bottom-0 left-0 w-1/4 z-10 pointer-events-none rotate-180">
+                        {Array.from({ length: blurLayers }).map((_, i) => (
+                            <div
+                                key={`blur-left-${i}`}
+                                className="absolute inset-0"
+                                style={{ "--blur-index": i } as React.CSSProperties}
+                            />
+                        ))}
+                    </div>
+                )}
+
+                {/* Progressive Blur Overlay - Right */}
+                {showBlur && (
+                    <div className="logo-slider__blur logo-slider__blur--right absolute top-0 bottom-0 right-0 w-1/4 z-10 pointer-events-none">
+                        {Array.from({ length: blurLayers }).map((_, i) => (
+                            <div
+                                key={`blur-right-${i}`}
+                                className="absolute inset-0"
+                                style={{ "--blur-index": i } as React.CSSProperties}
+                            />
+                        ))}
+                    </div>
+                )}
+
+                {/* Logo Track */}
+                <ul className="logo-slider__track flex items-center h-full w-fit m-0 p-0 list-none">
+                    {logos.map((logo, index) => (
+                        <li
+                            key={index}
+                            className="logo-slider__item h-4/5 w-[120px] sm:w-[140px] lg:w-[160px] aspect-video grid place-items-center shrink-0"
+                            style={{ "--item-index": index } as React.CSSProperties}
+                        >
+                            <div className="w-full h-full flex items-center justify-center [&>svg]:h-[65%] [&>svg]:w-auto [&>svg]:fill-zinc-800 dark:[&>svg]:fill-zinc-200 [&>img]:h-[65%] [&>img]:w-auto [&>img]:object-contain [&>img]:grayscale [&>img]:brightness-50 dark:[&>img]:brightness-125">
+                                {logo}
+                            </div>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+        </div>
+    );
 };
 
-export default DynamicText;
+LogoSlider.displayName = "LogoSlider";
+
+export default LogoSlider;
