@@ -1,48 +1,47 @@
 import { useEffect, useState } from 'react';
-import { Moon, Sun } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatedThemeToggler } from "../registry/magicui/animated-theme-toggler";
 
 export default function ThemeToggle() {
-  const [theme, setTheme] = useState<'default' | 'invert'>('default');
+  const [mounted, setMounted] = useState(false);
+  const [theme, setTheme] = useState<'light' | 'dark'>('light');
 
   useEffect(() => {
+    setMounted(true);
     // Check initial preference from local storage or system
-    const stored = localStorage.getItem('portfolio-theme');
-    if (stored === 'invert') {
-      setTheme('invert');
+    const oldStored = localStorage.getItem('portfolio-theme');
+    const newStored = localStorage.getItem('theme');
+    
+    if (newStored === 'dark' || oldStored === 'invert') {
+      document.documentElement.classList.add('dark');
       document.documentElement.setAttribute('data-theme', 'invert');
+      setTheme('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+      document.documentElement.removeAttribute('data-theme');
+      setTheme('light');
     }
   }, []);
 
-  const toggleTheme = () => {
-    const newTheme = theme === 'default' ? 'invert' : 'default';
-    setTheme(newTheme);
-    localStorage.setItem('portfolio-theme', newTheme);
-    
-    if (newTheme === 'invert') {
-      document.documentElement.setAttribute('data-theme', 'invert');
-    } else {
-      document.documentElement.removeAttribute('data-theme');
-    }
-  };
+  if (!mounted) return null;
 
   return (
-    <button
-      onClick={toggleTheme}
-      className="fixed top-6 right-6 z-50 p-3 rounded-full bg-foreground text-background shadow-lg hover:scale-105 transition-transform duration-300"
-      aria-label="Toggle Invert Mode"
-    >
-      <AnimatePresence mode="wait" initial={false}>
-        <motion.div
-          key={theme}
-          initial={{ opacity: 0, rotate: -90, scale: 0.5 }}
-          animate={{ opacity: 1, rotate: 0, scale: 1 }}
-          exit={{ opacity: 0, rotate: 90, scale: 0.5 }}
-          transition={{ duration: 0.3 }}
-        >
-          {theme === 'default' ? <Moon size={20} /> : <Sun size={20} />}
-        </motion.div>
-      </AnimatePresence>
-    </button>
+    <AnimatedThemeToggler
+      className="fixed top-6 right-6 z-50 p-3 rounded-full bg-foreground text-background shadow-lg hover:scale-105 transition-transform duration-300 flex items-center justify-center"
+      theme={theme}
+      onThemeChange={(newTheme) => {
+        setTheme(newTheme);
+        localStorage.setItem('theme', newTheme);
+        localStorage.setItem('portfolio-theme', newTheme === 'dark' ? 'invert' : 'default');
+        
+        if (newTheme === 'dark') {
+          document.documentElement.classList.add('dark');
+          document.documentElement.setAttribute('data-theme', 'invert');
+        } else {
+          document.documentElement.classList.remove('dark');
+          document.documentElement.removeAttribute('data-theme');
+        }
+      }}
+      variant="circle"
+    />
   );
 }
