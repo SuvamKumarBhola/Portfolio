@@ -1,4 +1,4 @@
-girimport { useState, useEffect, lazy, Suspense } from 'react';
+import { useState, useEffect, lazy, Suspense } from 'react';
 import Lenis from '@studio-freight/lenis';
 import { AnimatePresence } from 'framer-motion';
 import CustomCursor from './components/CustomCursor';
