@@ -94,13 +94,10 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="relative w-full py-24 px-6 md:px-12 lg:px-24 border-b border-border bg-background"
+      className="relative w-full py-16 px-6 md:px-12 lg:px-24 border-b border-border bg-background"
     >
       <div className="max-w-6xl mx-auto w-full">
         <div className="mb-20">
-          <h2 className="text-sm tracking-[0.2em] uppercase text-muted-foreground mb-4">
-            04 // Selected Works
-          </h2>
           <h3 className="text-4xl md:text-5xl font-heading font-semibold leading-tight">
             Proof of <span className="text-muted-foreground italic">concept.</span>
           </h3>

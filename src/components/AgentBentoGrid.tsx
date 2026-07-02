@@ -1,6 +1,3 @@
-npx shadcn@latest add https://www.vengenceui.com/r/agent-bento-grid.json
-
-code -
 "use client";
 
 import { useState, useEffect } from "react";

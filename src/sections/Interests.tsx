@@ -30,13 +30,10 @@ export default function Interests() {
   return (
     <section
       id="interests"
-      className="relative w-full py-24 px-6 md:px-12 lg:px-24 border-b border-border bg-muted/20"
+      className="relative w-full py-16 px-6 md:px-12 lg:px-24 border-b border-border bg-muted/20"
     >
       <div className="max-w-6xl mx-auto w-full flex flex-col lg:flex-row gap-16 lg:gap-8 items-center justify-between">
         <div className="w-full lg:w-1/3">
-          <h2 className="text-sm tracking-[0.2em] uppercase text-muted-foreground mb-4">
-            05 // Interests
-          </h2>
           <h3 className="text-4xl md:text-5xl font-heading font-semibold leading-tight mb-6">
             Beyond the <span className="text-muted-foreground italic">code.</span>
           </h3>

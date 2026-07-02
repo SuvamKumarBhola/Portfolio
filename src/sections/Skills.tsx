@@ -1,14 +1,14 @@
 import { motion } from 'framer-motion';
 import type { Variants } from 'framer-motion';
 import profileData from '../data/profile.json';
-import { 
-  SiTypescript, SiPython, SiGo, SiRust, 
-  SiReact, SiNextdotjs, SiTailwindcss, SiFramer, 
-  SiNodedotjs, SiExpress, SiPostgresql, SiRedis, 
-  SiGit, SiDocker, SiFigma 
+import {
+  SiTypescript, SiPython, SiGo, SiRust,
+  SiReact, SiNextdotjs, SiTailwindcss, SiFramer,
+  SiNodedotjs, SiExpress, SiPostgresql, SiRedis,
+  SiGit, SiDocker, SiFigma
 } from 'react-icons/si';
 import { FaAws } from 'react-icons/fa';
-import { ElementType } from 'react';
+import type { ElementType } from 'react';
 
 const iconMap: Record<string, ElementType> = {
   "TypeScript": SiTypescript,
@@ -47,7 +47,7 @@ const itemVariant: Variants = {
 
 export default function Skills() {
   const { skills } = profileData;
-  
+
   // Flatten all skills into a single array
   const allSkills = Object.values(skills).flat();
 
@@ -73,9 +73,9 @@ export default function Skills() {
           {allSkills.map((skill) => {
             const Icon = iconMap[skill];
             return (
-              <motion.div 
-                key={skill} 
-                variants={itemVariant} 
+              <motion.div
+                key={skill}
+                variants={itemVariant}
                 className="flex items-center gap-3 px-4 py-2.5 bg-background border border-border rounded-xl hover:bg-muted/50 transition-colors duration-300"
               >
                 {Icon && <Icon className="text-muted-foreground text-lg" />}

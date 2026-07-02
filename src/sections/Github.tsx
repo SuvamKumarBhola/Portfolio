@@ -26,13 +26,10 @@ export default function GithubActivity() {
   return (
     <section
       id="github"
-      className="relative w-full py-24 px-6 md:px-12 lg:px-24 border-b border-border bg-background"
+      className="relative w-full py-16 px-6 md:px-12 lg:px-24 border-b border-border bg-background"
     >
       <div className="max-w-6xl mx-auto w-full">
         <div className="mb-16">
-          <h2 className="text-sm tracking-[0.2em] uppercase text-muted-foreground mb-4">
-            06 // Open Source
-          </h2>
           <h3 className="text-4xl md:text-5xl font-heading font-semibold leading-tight">
             Code as <span className="text-muted-foreground italic">craft.</span>
           </h3>

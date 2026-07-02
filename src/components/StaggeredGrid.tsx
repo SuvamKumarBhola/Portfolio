@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect, useRef, useState, useId } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import imagesLoaded from 'imagesloaded'
@@ -64,7 +64,7 @@ export function StaggeredGrid({
 
         // Wait for background images to load
         // Note: we target both regular images and bento images if possible
-        const imgLoad = imagesLoaded(document.querySelectorAll('.grid__item-img'), { background: true }, handleLoad)
+        imagesLoaded(document.querySelectorAll('.grid__item-img'), { background: true }, handleLoad)
 
         return () => {
             // Cleanup

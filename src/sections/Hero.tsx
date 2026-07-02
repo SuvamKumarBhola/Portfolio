@@ -5,24 +5,9 @@ import AsciiGlitchRipple from '../components/AsciiGlitchRipple';
 import FlipText from '../components/FlipText';
 import MorphText from '../components/MorphText';
 
-const typingVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-};
 
-const charVariants = {
-  hidden: { opacity: 0, y: 10 },
-  visible: { opacity: 1, y: 0 },
-};
 
 export default function Hero() {
-  const designation = profileData.tagline;
-
   return (
     <section className="relative min-h-screen w-full flex flex-col items-center justify-center overflow-hidden border-b border-border pt-20 pb-10 px-6">
       {/* Abstract Animated Background */}

@@ -28,8 +28,8 @@ export default function Contact() {
   }));
 
   return (
-    <section id="contact" className="w-full min-h-screen bg-[#000] overflow-hidden border-b border-border text-white">
-      <div className="w-full h-full flex flex-col items-center justify-center py-24">
+    <section id="contact" className="w-full bg-[#000] overflow-hidden border-b border-border text-white">
+      <div className="w-full h-full flex flex-col items-center justify-center py-16">
         <StaggeredGrid 
           images={backgroundImages} 
           bentoItems={bentoItems} 

@@ -13,7 +13,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="relative w-full min-h-screen py-24 px-6 md:px-12 lg:px-24 border-b border-border bg-background flex flex-col justify-center"
+      className="relative w-full py-16 md:py-24 px-6 md:px-12 lg:px-24 border-b border-border bg-background flex flex-col justify-center"
     >
       <div className="max-w-6xl mx-auto w-full">
         <motion.div
@@ -27,9 +27,6 @@ export default function About() {
         >
           {/* Left Column: Heading */}
           <motion.div variants={fadeUpVariant} className="lg:col-span-4">
-            <h2 className="text-sm tracking-[0.2em] uppercase text-muted-foreground mb-4">
-              01 // About Me
-            </h2>
             <h3 className="text-4xl md:text-5xl font-heading font-semibold leading-tight">
               Bridging the gap between <span className="text-muted-foreground italic">design</span> and <span className="text-muted-foreground italic">engineering.</span>
             </h3>

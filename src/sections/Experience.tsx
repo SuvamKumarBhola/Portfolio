@@ -2,13 +2,12 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, ChevronUp, Briefcase } from 'lucide-react';
 import profileData from '../data/profile.json';
-import { cn } from '../lib/utils';
 
 export default function Experience() {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(0);
 
   return (
-    <section id="experience" className="w-full py-24 px-6 md:px-12 lg:px-24 bg-[#0a0a0a] text-white border-b border-border">
+    <section id="experience" className="w-full py-16 px-6 md:px-12 lg:px-24 bg-[#0a0a0a] text-white border-b border-border">
       <div className="max-w-4xl mx-auto w-full">
         <h2 className="text-2xl font-bold mb-8 text-white">Experiences</h2>
 
