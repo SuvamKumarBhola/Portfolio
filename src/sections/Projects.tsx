@@ -27,6 +27,7 @@ const ProjectCard = ({ project }: { project: any }) => {
           transition={{ duration: 0.6, ease: 'easeOut' }}
           src={project.image}
           alt={project.title}
+          loading="lazy"
           className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700"
         />
         {/* Subtle overlay for inversion support */}

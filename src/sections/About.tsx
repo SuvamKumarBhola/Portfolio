@@ -3,7 +3,7 @@ import { twMerge } from "tailwind-merge";
 import { FiArrowRight, FiMail, FiMapPin } from "react-icons/fi";
 import { FaGithub, FaLinkedin, FaTwitter, FaYoutube } from "react-icons/fa";
 import profileData from "../data/profile.json";
-import type { HTMLAttributes } from "react";
+
 
 export default function About() {
   return (

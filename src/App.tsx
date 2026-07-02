@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, lazy, Suspense } from 'react';
 import Lenis from '@studio-freight/lenis';
 import { AnimatePresence } from 'framer-motion';
 import CustomCursor from './components/CustomCursor';
@@ -6,18 +6,18 @@ import ThemeToggle from './components/ThemeToggle';
 import Navbar from './components/Navbar';
 import Loader from './components/Loader';
 
-// Sections (to be implemented)
-import Hero from './sections/Hero';
-import VelocityText from './sections/VelocityText';
-import About from './sections/About';
-import Skills from './sections/Skills';
-import Experience from './sections/Experience';
-import Projects from './sections/Projects';
-import Interests from './sections/Interests';
-import Certifications from './sections/Certifications';
-import GithubActivity from './sections/Github';
-import Contact from './sections/Contact';
-import Footer from './sections/Footer';
+// Sections (Lazy Loaded)
+const Hero = lazy(() => import('./sections/Hero'));
+const VelocityText = lazy(() => import('./sections/VelocityText'));
+const About = lazy(() => import('./sections/About'));
+const Skills = lazy(() => import('./sections/Skills'));
+const Experience = lazy(() => import('./sections/Experience'));
+const Projects = lazy(() => import('./sections/Projects'));
+const Interests = lazy(() => import('./sections/Interests'));
+const Certifications = lazy(() => import('./sections/Certifications'));
+const GithubActivity = lazy(() => import('./sections/Github'));
+const Contact = lazy(() => import('./sections/Contact'));
+const Footer = lazy(() => import('./sections/Footer'));
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -54,23 +54,25 @@ function App() {
 
       {!loading && (
         <div className="relative w-full min-h-screen font-sans selection:bg-foreground selection:text-background">
-      <CustomCursor />
-      <ThemeToggle />
-      <Navbar />
-      
-      <main className="w-full">
-        <Hero />
-        <About />
-        <Skills />
-        <Experience />
-        <Projects />
-        <Certifications />
-        <Interests />
-        <GithubActivity />
-        <Contact />
-        <VelocityText />
-      </main>
-      <Footer />
+          <CustomCursor />
+          <ThemeToggle />
+          <Navbar />
+          
+          <Suspense fallback={<div className="min-h-screen w-full bg-background" />}>
+            <main className="w-full">
+              <Hero />
+              <About />
+              <Skills />
+              <Experience />
+              <Projects />
+              <Certifications />
+              <Interests />
+              <GithubActivity />
+              <Contact />
+              <VelocityText />
+            </main>
+            <Footer />
+          </Suspense>
         </div>
       )}
     </>

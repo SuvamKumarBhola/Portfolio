@@ -168,11 +168,11 @@ export function DiagonalCarousel({
                   className="aspect-square w-full cursor-pointer"
                   onClick={() => selectSlide(index)}
                 >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={item.src}
                     alt={item.alt ?? item.title}
                     draggable={false}
+                    loading="lazy"
                     className={cn(
                       "h-full w-full select-none rounded-2xl object-cover shadow-xl",
                       imageClassName
