@@ -4,21 +4,21 @@
 
 @layer base {
   :root {
-    --background: #ffffff;
-    --foreground: #000000;
-    --muted: #f3f4f6;
-    --muted-foreground: #6b7280;
-    --border: #e5e7eb;
+    --background: #fff0f5;
+    --foreground: #4a0e2e;
+    --muted: #fce4ec;
+    --muted-foreground: #ad1457;
+    --border: #f8bbd0;
     
     --radius: 0.5rem;
   }
 
   .dark, [data-theme="invert"] {
-    --background: #0a0a0a;
-    --foreground: #ffffff;
-    --muted: #262626;
-    --muted-foreground: #a3a3a3;
-    --border: #262626;
+    --background: #150914;
+    --foreground: #ffd6e8;
+    --muted: #2d132b;
+    --muted-foreground: #d15c8c;
+    --border: #4a1f43;
   }
 
   * {

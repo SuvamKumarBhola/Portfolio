@@ -33,10 +33,13 @@ export default function Interests() {
       className="relative w-full py-16 px-6 md:px-12 lg:px-24 border-b border-border bg-muted/20"
     >
       <div className="max-w-6xl mx-auto w-full flex flex-col lg:flex-row gap-16 lg:gap-8 items-center justify-between">
-        <div className="w-full lg:w-1/3">
-          <h3 className="text-4xl md:text-5xl font-heading font-semibold leading-tight mb-6">
-            Beyond the <span className="text-muted-foreground italic">code.</span>
-          </h3>
+        <div className="w-full lg:w-1/3 flex flex-col mb-12 lg:mb-0">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black uppercase text-foreground leading-[0.9]">
+            HOBBIES &
+          </h2>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black uppercase text-muted-foreground/20 leading-[0.9] mt-2 mb-6">
+            INTERESTS
+          </h2>
           <p className="text-foreground/80 leading-relaxed font-light">
             When I'm not pushing pixels or optimizing algorithms, you can find me exploring these topics and hobbies.
           </p>

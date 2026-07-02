@@ -29,10 +29,13 @@ export default function GithubActivity() {
       className="relative w-full py-16 px-6 md:px-12 lg:px-24 border-b border-border bg-background"
     >
       <div className="max-w-6xl mx-auto w-full">
-        <div className="mb-16">
-          <h3 className="text-4xl md:text-5xl font-heading font-semibold leading-tight">
-            Code as <span className="text-muted-foreground italic">craft.</span>
-          </h3>
+        <div className="flex flex-col mb-16">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black uppercase text-foreground leading-[0.9]">
+            GITHUB
+          </h2>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black uppercase text-muted-foreground/20 leading-[0.9] mt-2">
+            ACTIVITY
+          </h2>
         </div>
 
         <div className="w-full border border-border rounded-lg p-8 bg-muted/10 flex flex-col gap-8">

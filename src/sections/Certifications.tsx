@@ -13,9 +13,14 @@ export default function Certifications() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.8 }}
-          className="text-center md:text-left"
+          className="flex flex-col mb-12"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">Certifications</h2>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black uppercase text-foreground leading-[0.9]">
+            AWARDS &
+          </h2>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black uppercase text-muted-foreground/20 leading-[0.9] mt-2 mb-4">
+            CERTIFICATIONS
+          </h2>
           <p className="text-muted-foreground text-lg max-w-2xl">
             A showcase of my continuous learning and professional milestones.
           </p>

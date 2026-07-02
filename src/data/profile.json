@@ -1,117 +1,127 @@
 {
-  "name": "Jane Doe",
-  "tagline": "Software Engineer & Builder",
-  "intro": "I craft elegant, high-performance web experiences. Focused on blending minimalist design with cutting-edge engineering to solve complex problems.",
+  "name": "Suvam Kumar Bhola",
+  "tagline": "Full-Stack Developer & AI Enthusiast",
+  "intro": "I am a computer science student passionate about open-source, system design, and building intelligent web applications. Focused on blending minimalist design with cutting-edge engineering to solve real-world problems.",
   "about": {
-    "shortBio": "I am a full-stack developer passionate about open-source, system design, and building products that scale.",
-    "longBio": "With over 5 years of experience in the industry, I have led technical teams, shipped products used by millions, and contributed significantly to open source. I believe in writing code that is not just functional, but beautiful and maintainable.",
-    "goals": "To push the boundaries of what is possible on the web and bridge the gap between design and technical implementation.",
-    "vision": "A digital landscape where every interaction is purposeful, fast, and accessible."
+    "shortBio": "Computer Science student at GITAM University with a passion for web development and AI.",
+    "longBio": "With a strong foundation in computer science from my diploma and ongoing B.Tech, I have actively engaged in open-source programs like SSOC and GSSOC, and developed real-time web applications. I serve as a Google Student Ambassador, organizing tech workshops and fostering a strong developer community.",
+    "goals": "To innovate at the intersection of web technologies and artificial intelligence, creating impactful products.",
+    "vision": "A digital landscape where every interaction is intelligent, purposeful, and accessible."
   },
   "contact": {
-    "email": "hello@example.com",
-    "phone": "+1 234 567 8900",
-    "location": "San Francisco, CA"
+    "email": "suvamkumarbhola2005@gmail.com",
+    "phone": "+91 9078496450",
+    "location": "Bhubaneswar, Odisha"
   },
   "socials": [
     {
       "platform": "GitHub",
-      "url": "https://github.com",
+      "url": "https://github.com/SuvamKumarBhola",
       "icon": "Github"
     },
     {
       "platform": "LinkedIn",
-      "url": "https://linkedin.com",
+      "url": "https://linkedin.com/in/suvamkumarbhola",
       "icon": "Linkedin"
-    },
-    {
-      "platform": "Twitter",
-      "url": "https://twitter.com",
-      "icon": "Twitter"
     }
   ],
   "skills": {
-    "Languages": ["TypeScript", "Python", "Go", "Rust"],
-    "Frontend": ["React", "Next.js", "TailwindCSS", "Framer Motion"],
-    "Backend": ["Node.js", "Express", "PostgreSQL", "Redis"],
-    "Tools": ["Git", "Docker", "AWS", "Figma"]
+    "Languages": ["JavaScript", "Python", "HTML", "CSS"],
+    "Frontend": ["React", "TailwindCSS"],
+    "Backend": ["Node.js", "Express", "MongoDB"],
+    "Tools": ["Git", "GitHub"]
   },
   "experience": [
     {
-      "company": "Tech Innovators Inc.",
-      "role": "Senior Frontend Engineer",
-      "duration": "2021 - Present",
-      "location": "Remote",
+      "company": "MindBrain",
+      "role": "Artificial Intelligence Intern",
+      "duration": "March 2026 - Present",
+      "location": "Bhubaneswar, Odisha",
       "stats": [
-        {"value": "5", "label": "CORE COMPONENTS"},
-        {"value": "3", "label": "PRINCIPALS"},
-        {"value": "Jun-Nov", "label": "TERM"}
+        {"value": "AI/ML", "label": "DOMAIN"}
       ],
       "responsibilities": [
-        "Led the migration of a legacy monolithic architecture to micro-frontends.",
-        "Improved Core Web Vitals by 40% through rigorous performance tuning.",
-        "Mentored junior developers and established code quality standards."
+        "Developed AI-based solutions by applying machine learning concepts to real-world datasets and problem statements.",
+        "Performed data preprocessing, feature engineering, exploratory data analysis, and model evaluation to improve prediction accuracy.",
+        "Trained and validated models in Python using industry-standard AI/ML libraries, applying optimization techniques."
       ],
-      "technologies": ["React", "TypeScript", "GraphQL", "Webpack"]
+      "technologies": ["Python", "Machine Learning", "Data Analysis"]
     },
     {
-      "company": "Startup Co.",
-      "role": "Full Stack Developer",
-      "duration": "2018 - 2021",
-      "location": "San Francisco, CA",
+      "company": "SSOC & GSSOC",
+      "role": "Open Source Contributor",
+      "duration": "May 2026 - Aug 2026",
+      "location": "Remote",
       "stats": [
-        {"value": "10k+", "label": "DAILY USERS"},
-        {"value": "PostgreSQL", "label": "DATABASE"}
+        {"value": "2", "label": "PROGRAMS"}
       ],
       "responsibilities": [
-        "Built the MVP from scratch and scaled it to 10k daily active users.",
-        "Implemented real-time collaboration features using WebSockets.",
-        "Designed and optimized PostgreSQL database schemas."
+        "Selected as a contributor for two national-level open-source programs, SSOC and GSSOC, contributing to multiple repositories.",
+        "Fixed bugs and implemented new features across open-source projects, improving functionality and code reliability.",
+        "Collaborated with maintainers and fellow contributors through GitHub issues and pull requests."
       ],
-      "technologies": ["Node.js", "React", "PostgreSQL", "Socket.io"]
+      "technologies": ["Git", "GitHub", "Open Source"]
+    },
+    {
+      "company": "Deloitte Australia",
+      "role": "Data Analytics Job Simulation",
+      "duration": "March 2026",
+      "location": "Remote",
+      "stats": [
+        {"value": "10k+", "label": "DATA POINTS"}
+      ],
+      "responsibilities": [
+        "Analyzed a client telemetry dataset using Tableau, identifying patterns in machine performance and operational efficiency.",
+        "Processed and visualized 10,000+ data points to generate data-driven insights and trend reports."
+      ],
+      "technologies": ["Data Analytics", "Tableau"]
+    },
+    {
+      "company": "Google",
+      "role": "Google Student Ambassador",
+      "duration": "Sep 2025 - Jan 2026",
+      "location": "Bhubaneswar, Odisha",
+      "stats": [
+        {"value": "Leader", "label": "ROLE"}
+      ],
+      "responsibilities": [
+        "Represented Google technologies on campus as a Student Ambassador.",
+        "Organized workshops and events on Web Development, AI, and Cloud Technologies."
+      ],
+      "technologies": ["Leadership", "Community Building", "Web Dev"]
     }
   ],
   "projects": [
     {
-      "title": "Aura Design System",
-      "description": "A comprehensive open-source React component library tailored for building premium interfaces with minimal effort. Includes fully customizable Framer Motion animations out of the box.",
-      "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1000&auto=format&fit=crop",
+      "title": "AI-Powered Traffic Detection System",
+      "description": "A real-time traffic detection web application built in a 4-person team using the MERN stack during a 1-day hackathon. Won 1st Place at the GIET Hackathon.",
+      "image": "https://images.unsplash.com/photo-1549420067-154c153db631?q=80&w=1000&auto=format&fit=crop",
       "liveUrl": "#",
-      "githubUrl": "#",
-      "techStack": ["React", "TypeScript", "TailwindCSS", "Storybook"],
-      "categories": ["Frontend", "Open Source"]
+      "githubUrl": "https://github.com/SuvamKumarBhola",
+      "techStack": ["MongoDB", "Express", "React", "Node.js", "AI"],
+      "categories": ["Full Stack", "AI"]
     },
     {
-      "title": "Quantum DB Engine",
-      "description": "An experimental lightweight in-memory key-value store built in Go, focusing on high throughput and zero-allocation critical paths.",
-      "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1000&auto=format&fit=crop",
+      "title": "Cosmic Watch",
+      "description": "NASA NeoWs Asteroid Tracking System integrating real-time near-Earth asteroid data. Includes a risk analysis module and secure JWT authentication.",
+      "image": "https://images.unsplash.com/photo-1462331940025-496dfbfc7564?q=80&w=1000&auto=format&fit=crop",
       "liveUrl": "#",
-      "githubUrl": "#",
-      "techStack": ["Go", "Distributed Systems", "gRPC"],
-      "categories": ["Backend", "Research"]
+      "githubUrl": "https://github.com/SuvamKumarBhola",
+      "techStack": ["MongoDB", "NASA API", "Node.js", "React"],
+      "categories": ["Full Stack", "API"]
     }
   ],
   "certifications": [
     {
-      "title": "AWS Certified Solutions Architect",
-      "src": "https://images.unsplash.com/photo-1523289217630-0dd16184ac8e?auto=format&fit=crop&q=80&w=600&h=800",
-      "alt": "AWS Certificate"
+      "title": "Certified Google Student Ambassador",
+      "src": "https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&q=80&w=600&h=800",
+      "alt": "Google Student Ambassador"
     },
     {
-      "title": "Google Cloud Professional Developer",
-      "src": "https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&q=80&w=600&h=800",
-      "alt": "GCP Certificate"
-    },
-    {
-      "title": "Certified Kubernetes Administrator",
-      "src": "https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&q=80&w=600&h=800",
-      "alt": "CKA Certificate"
-    },
-    {
-      "title": "Meta Front-End Developer",
+      "title": "Microsoft Certified - Web Design and Development",
       "src": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=600&h=800",
-      "alt": "Meta Certificate"
+      "alt": "Microsoft Web Design"
     }
   ],
-  "interests": ["System Design", "Open Source", "Photography", "Reading", "Cloud Computing"]
+  "interests": ["Artificial Intelligence", "Open Source", "Web Development", "Community Building"]
 }

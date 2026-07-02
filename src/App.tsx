@@ -8,6 +8,7 @@ import Loader from './components/Loader';
 
 // Sections (to be implemented)
 import Hero from './sections/Hero';
+import VelocityText from './sections/VelocityText';
 import About from './sections/About';
 import Skills from './sections/Skills';
 import Experience from './sections/Experience';
@@ -67,6 +68,7 @@ function App() {
         <Interests />
         <GithubActivity />
         <Contact />
+        <VelocityText />
       </main>
       <Footer />
         </div>

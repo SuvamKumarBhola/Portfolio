@@ -4,11 +4,11 @@ import {
   useVelocity,
   useTransform,
   useSpring,
-} from "motion/react";
-import React, { useRef } from "react";
+} from "framer-motion";
+import { useRef } from "react";
 
-export const VelocityText = () => {
-  const targetRef = useRef(null);
+export default function VelocityText() {
+  const targetRef = useRef<HTMLElement>(null);
 
   const { scrollYProgress } = useScroll({
     target: targetRef,
@@ -30,7 +30,7 @@ export const VelocityText = () => {
   return (
     <section
       ref={targetRef}
-      className="h-[1000vh] bg-neutral-50 text-neutral-950"
+      className="h-[500vh] bg-foreground text-background"
     >
       <div className="sticky top-0 flex h-screen items-center overflow-hidden">
         <motion.p
@@ -47,4 +47,4 @@ export const VelocityText = () => {
       </div>
     </section>
   );
-};
+}

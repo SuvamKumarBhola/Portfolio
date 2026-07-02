@@ -10,18 +10,19 @@ import MorphText from '../components/MorphText';
 export default function Hero() {
   return (
     <section className="relative min-h-screen w-full flex flex-col items-center justify-center overflow-hidden border-b border-border pt-20 pb-10 px-6">
-      {/* Abstract Animated Background */}
-      <div className="absolute inset-0 pointer-events-none z-0 flex items-center justify-center opacity-[0.03]">
-        <motion.div
-          animate={{ rotate: 360 }}
-          transition={{ repeat: Infinity, duration: 60, ease: 'linear' }}
-          className="w-[80vw] h-[80vw] max-w-[800px] max-h-[800px] border-[1px] border-foreground rounded-full"
-        />
-        <motion.div
-          animate={{ rotate: -360 }}
-          transition={{ repeat: Infinity, duration: 80, ease: 'linear' }}
-          className="absolute w-[60vw] h-[60vw] max-w-[600px] max-h-[600px] border-[1px] border-foreground rounded-full"
-        />
+      {/* Video Background */}
+      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
+        <video 
+          autoPlay 
+          loop 
+          muted 
+          playsInline 
+          className="w-full h-full object-cover opacity-20"
+        >
+          <source src="/hero-bg.mp4" type="video/mp4" />
+        </video>
+        {/* Subtle overlay to ensure text readability */}
+        <div className="absolute inset-0 bg-background/50" />
       </div>
 
       <div className="z-10 w-full max-w-5xl flex flex-col lg:flex-row items-center justify-between gap-12">

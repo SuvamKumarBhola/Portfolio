@@ -28,7 +28,7 @@ export default function Contact() {
   }));
 
   return (
-    <section id="contact" className="w-full bg-[#000] overflow-hidden border-b border-border text-white">
+    <section id="contact" className="w-full bg-background overflow-hidden border-b border-border text-foreground">
       <div className="w-full h-full flex flex-col items-center justify-center py-16">
         <StaggeredGrid 
           images={backgroundImages} 
