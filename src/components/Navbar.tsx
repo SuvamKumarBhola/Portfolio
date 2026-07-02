@@ -54,15 +54,42 @@ export default function Navbar() {
         transition={{ duration: 0.8, delay: 0.5 }}
         className="fixed right-8 top-1/2 -translate-y-1/2 z-50 hidden lg:flex flex-col gap-8 w-40"
       >
-        <h4 className="text-xs font-bold tracking-[0.2em] uppercase text-muted-foreground mb-2">
+        <motion.h4 
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.6 }}
+          className="text-xs font-bold tracking-[0.2em] uppercase text-muted-foreground mb-2"
+        >
           Index
-        </h4>
-        <ul className="flex flex-col gap-4">
+        </motion.h4>
+        <motion.ul 
+          className="flex flex-col gap-4"
+          initial="hidden"
+          animate="visible"
+          variants={{
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: {
+                staggerChildren: 0.1,
+                delayChildren: 0.7,
+              }
+            }
+          }}
+        >
           {navLinks.map((link) => {
             const isActive = activeSection === link.href.substring(1);
             return (
-              <li key={link.name}>
-                <a
+              <motion.li 
+                key={link.name}
+                variants={{
+                  hidden: { opacity: 0, x: 20 },
+                  visible: { opacity: 1, x: 0, transition: { duration: 0.5, ease: 'easeOut' } }
+                }}
+              >
+                <motion.a
+                  whileHover={{ x: 6 }}
+                  whileTap={{ scale: 0.95 }}
                   href={link.href}
                   onClick={(e) => scrollTo(e, link.href)}
                   className={`flex items-center text-sm font-medium transition-colors duration-300 ${
@@ -77,11 +104,11 @@ export default function Navbar() {
                     —
                   </span>
                   {link.name}
-                </a>
-              </li>
+                </motion.a>
+              </motion.li>
             );
           })}
-        </ul>
+        </motion.ul>
       </motion.nav>
 
       {/* Mobile Top Header (Just for the Hamburger) */}

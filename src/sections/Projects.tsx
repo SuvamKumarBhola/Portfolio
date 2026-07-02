@@ -55,7 +55,7 @@ const ProjectCard = ({ project }: { project: any }) => {
           {project.techStack.map((tech: string) => (
             <span
               key={tech}
-              className="px-3 py-1 bg-muted text-xs rounded-full border border-border"
+              className="px-4 py-1.5 text-[11px] sm:text-xs font-semibold tracking-widest uppercase bg-transparent text-foreground/70 border border-foreground/20 rounded-full hover:bg-foreground/5 hover:border-foreground/40 hover:text-foreground transition-all duration-300"
             >
               {tech}
             </span>

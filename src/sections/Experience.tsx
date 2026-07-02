@@ -33,8 +33,8 @@ export default function Experience() {
                 >
                   <div className="flex items-center gap-4">
                     {/* Logo placeholder */}
-                    <div className="w-12 h-12 rounded-xl bg-muted border border-border flex items-center justify-center shrink-0">
-                      <Briefcase className="w-6 h-6 text-muted-foreground" />
+                    <div className="w-12 h-12 rounded-full border border-foreground/20 bg-transparent flex items-center justify-center shrink-0 group-hover:bg-foreground/5 group-hover:border-foreground/40 transition-all duration-300">
+                      <Briefcase className="w-5 h-5 text-foreground/60 group-hover:text-foreground transition-colors" />
                     </div>
                     <div>
                       <h3 className="text-lg font-bold text-foreground group-hover:text-foreground/80 transition-colors">
@@ -95,7 +95,7 @@ export default function Experience() {
                           {exp.technologies.map((tech: string) => (
                             <span
                               key={tech}
-                              className="px-3 py-1.5 text-xs font-medium bg-muted text-muted-foreground border border-border rounded-md"
+                              className="px-4 py-1.5 text-[11px] sm:text-xs font-semibold tracking-widest uppercase bg-transparent text-foreground/70 border border-foreground/20 rounded-full hover:bg-foreground/5 hover:border-foreground/40 hover:text-foreground transition-all duration-300"
                             >
                               {tech}
                             </span>

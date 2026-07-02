@@ -1,27 +1,16 @@
 import { motion } from 'framer-motion';
+import { GitHubCalendar } from 'react-github-calendar';
+import profileData from '../data/profile.json';
 
 export default function GithubActivity() {
-  // Generates dummy data for a stylized contribution graph
-  const generateContributions = () => {
-    const weeks = [];
-    for (let i = 0; i < 52; i++) {
-      const days = [];
-      for (let j = 0; j < 7; j++) {
-        // Randomly assign a level of contribution
-        const rand = Math.random();
-        let level = 0;
-        if (rand > 0.8) level = 4;
-        else if (rand > 0.6) level = 3;
-        else if (rand > 0.4) level = 2;
-        else if (rand > 0.2) level = 1;
-        days.push(level);
-      }
-      weeks.push(days);
-    }
-    return weeks;
+  const explicitTheme = {
+    light: ['#fce4ec', '#f8bbd0', '#f48fb1', '#f06292', '#e91e63'],
+    dark: ['#2d132b', '#732c52', '#a03d72', '#d15c8c', '#ffd6e8'],
   };
 
-  const contributionData = generateContributions();
+  // Extract GitHub username from profile data
+  const githubSocial = profileData.socials.find(s => s.platform.toLowerCase() === 'github');
+  const githubUsername = githubSocial ? githubSocial.url.split('/').pop() || 'SuvamKumarBhola' : 'SuvamKumarBhola';
 
   return (
     <section
@@ -38,14 +27,14 @@ export default function GithubActivity() {
           </h2>
         </div>
 
-        <div className="w-full border border-border rounded-lg p-8 bg-muted/10 flex flex-col gap-8">
+        <div className="w-full border border-border rounded-lg p-8 bg-muted/10 flex flex-col gap-8 overflow-hidden">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b border-border pb-6">
             <div>
-              <h4 className="text-2xl font-semibold mb-1">GitHub Activity</h4>
-              <p className="text-muted-foreground">1,234 contributions in the last year</p>
+              <h4 className="text-2xl font-semibold mb-1">Real-time Activity</h4>
+              <p className="text-muted-foreground">My GitHub contributions map</p>
             </div>
             <a
-              href="https://github.com"
+              href={`https://github.com/${githubUsername}`}
               target="_blank"
               rel="noreferrer"
               className="px-6 py-2 border border-border hover:border-foreground transition-colors rounded-md text-sm font-medium"
@@ -54,46 +43,24 @@ export default function GithubActivity() {
             </a>
           </div>
 
-          <div className="overflow-x-auto pb-4">
-            <div className="flex gap-1 min-w-[800px]">
-              {contributionData.map((week, wIndex) => (
-                <div key={wIndex} className="flex flex-col gap-1">
-                  {week.map((level, dIndex) => (
-                    <motion.div
-                      key={`${wIndex}-${dIndex}`}
-                      initial={{ opacity: 0, scale: 0.5 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      viewport={{ once: true, margin: '-50px' }}
-                      transition={{ duration: 0.5, delay: (wIndex * 7 + dIndex) * 0.002 }}
-                      className={`w-3 h-3 rounded-[2px] transition-colors duration-300 ${
-                        level === 0
-                          ? 'bg-muted border border-border/50'
-                          : level === 1
-                          ? 'bg-foreground/20'
-                          : level === 2
-                          ? 'bg-foreground/50'
-                          : level === 3
-                          ? 'bg-foreground/80'
-                          : 'bg-foreground'
-                      }`}
-                    />
-                  ))}
-                </div>
-              ))}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="flex justify-center overflow-x-auto w-full py-4 text-foreground/80"
+          >
+            <div className="min-w-max pr-4">
+              <GitHubCalendar 
+                username={githubUsername} 
+                theme={explicitTheme}
+                colorScheme="dark"
+                blockSize={12}
+                blockMargin={5}
+                fontSize={12}
+              />
             </div>
-          </div>
-          
-          <div className="flex gap-4 items-center justify-end text-xs text-muted-foreground">
-            <span>Less</span>
-            <div className="flex gap-1">
-              <div className="w-3 h-3 rounded-[2px] bg-muted border border-border/50" />
-              <div className="w-3 h-3 rounded-[2px] bg-foreground/20" />
-              <div className="w-3 h-3 rounded-[2px] bg-foreground/50" />
-              <div className="w-3 h-3 rounded-[2px] bg-foreground/80" />
-              <div className="w-3 h-3 rounded-[2px] bg-foreground" />
-            </div>
-            <span>More</span>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
