@@ -16,7 +16,6 @@ const Projects = lazy(() => import('./sections/Projects'));
 const Interests = lazy(() => import('./sections/Interests'));
 const Certifications = lazy(() => import('./sections/Certifications'));
 const GithubActivity = lazy(() => import('./sections/Github'));
-const Contact = lazy(() => import('./sections/Contact'));
 const Footer = lazy(() => import('./sections/Footer'));
 
 function App() {
@@ -68,7 +67,6 @@ function App() {
               <Certifications />
               <Interests />
               <GithubActivity />
-              <Contact />
               <VelocityText />
             </main>
             <Footer />
