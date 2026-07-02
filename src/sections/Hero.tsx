@@ -52,7 +52,7 @@ export default function Hero() {
           >
             <MorphText 
               words={[profileData.name, "CREATOR", "ENGINEER"]} 
-              fontSize="clamp(3rem, 8vw, 6rem)"
+              fontSize="clamp(1.5rem, 8vw, 6rem)"
               textClassName="justify-start text-left"
             />
           </motion.h1>
